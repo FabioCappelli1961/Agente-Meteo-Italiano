@@ -2,6 +2,7 @@
 # Raccoglie automaticamente previsioni meteo ogni mercoledì e invia via email
 
 import asyncio
+import time
 import smtplib
 from datetime import datetime
 from email.mime.text import MIMEText
@@ -196,7 +197,8 @@ if __name__ == "__main__":
     # Mantieni in esecuzione
     try:
         print("Agente Meteo Italiano avviato. Premere CTRL+C per fermare.")
-        asyncio.run(asyncio.sleep(float('inf')))
+        while True:
+            time.sleep(1)
     except KeyboardInterrupt:
         print("\nFermo dell'agente...")
         agent.stop_scheduler()
